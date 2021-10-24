@@ -4,8 +4,14 @@ import { Link } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { useStateValue } from './StateProvider';
+import { auth } from './firebase';
 const Header = () => {
-    const [{ basket }, dispatch] = useStateValue();
+    const [{ basket, user }, dispatch] = useStateValue();
+    const handleAuth = () => {
+        if (user) {
+            auth.signOut();
+        }
+    }
     return (
         <>
             <div className="header">
@@ -21,16 +27,20 @@ const Header = () => {
 
 
                 <div className="header_nav">
-                    <Link to="/login">
-                        <div className="header_option">
-                            <span className="header_option_lineone">Hello guest</span>
-                            <span className="header_option_linetwo">Sign In</span>
+                    <Link to={!user && "/login"}>
+                        <div className="header_option" onClick={handleAuth}>
+                            <span className="header_option_lineone">Hello {user ? user?.email : "guest"}</span>
+                            <span className="header_option_linetwo">{user ? "Sign Out" : "Sign In"}</span>
                         </div>
                     </Link>
-                    <div className="header_option">
-                        <span className="header_option_lineone">Returns</span>
-                        <span className="header_option_linetwo">& orders</span>
-                    </div>
+
+                    <Link to="/orders">
+                        <div className="header_option">
+                            <span className="header_option_lineone">Returns</span>
+                            <span className="header_option_linetwo">& orders</span>
+                        </div>
+                    </Link>
+
                     <div className="header_option">
                         <span className="header_option_lineone">your</span>
                         <span className="header_option_linetwo">Prime</span>

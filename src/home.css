@@ -14,6 +14,76 @@
 .home_Image{
 width: 100%;
 z-index: -1;
-margin-bottom: -150px;
+/* margin-bottom: -150px; */
 mask-image: linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,0));
+}
+.hero{
+    width: 104vw;
+    height: 80vh;
+    mask-image: linear-gradient(to bottom,rgba(0,0,0,1),rgba(0,0,0,0.5));
+    z-index: -1444444;
+    margin-top: -30px;
+}
+.products_row{
+    margin-top: -200px;
+}
+
+
+
+
+
+.carousel .slick-arrow.slick-prev,
+.carousel .slick-arrow.slick-next {
+  opacity: 0;
+  width: 47px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  top: 30%;
+}
+
+.carousel .slick-arrow.slick-prev:hover{
+    opacity: 1;
+    background: transparent;
+    border: 2px solid white;
+    box-shadow: 1px 2px 10px -1px rgb(0 0 0 / 30%);
+}
+
+.carousel .slick-arrow.slick-next:hover{
+    opacity: 1;
+    background: transparent;
+    border: 2px solid white;
+    box-shadow: 1px 2px 10px -1px rgb(0 0 0 / 30%);
+}
+.carousel .slick-prev {
+  left: 0;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  
+}
+.carousel .slick-next {
+  right: 0;
+  border-bottom-left-radius: 7px;
+  border-top-left-radius: 7px;
+}
+.slick-prev::before,
+.slick-next::before {
+  display: none;
+}
+.custom-indicator {
+  bottom: -65px;
+}
+.custom-indicator li {
+  width: 50px;
+  height: 50px;
+  filter: grayscale(100%);
+}
+.custom-indicator li.slick-active {
+  filter: grayscale(0%);
+}
+.multi__image:hover {
+  transform: scale(1.1);
+  transition: 500ms;
 }
