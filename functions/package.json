@@ -21,6 +21,7 @@
     "stripe": "^8.183.0"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.15.8",
     "eslint": "^7.6.0",
     "eslint-config-google": "^0.14.0",
     "firebase-functions-test": "^0.2.0"

@@ -5,6 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { useStateValue } from './StateProvider';
 import { auth } from './firebase';
+import { motion } from "framer-motion"
 const Header = () => {
     const [{ basket, user }, dispatch] = useStateValue();
     const handleAuth = () => {
@@ -14,7 +15,11 @@ const Header = () => {
     }
     return (
         <>
-            <div className="header">
+            <motion.div
+                animate={{ y: 0, opacity: 1 }}
+                initial={{ y: -100, opacity: 0.5 }}
+                transition={{ duration: 0.5 }}
+                className="header">
                 <Link to="/">
                     <img
                         className="header_logo"
@@ -53,7 +58,7 @@ const Header = () => {
                     </Link>
 
                 </div>
-            </div>
+            </motion.div>
 
 
         </>

@@ -14,12 +14,13 @@ import { Elements } from "@stripe/react-stripe-js"
 import Orders from './Orders';
 import Carousel from './Carousel';
 import Footer from './Footer';
+
 const promise = loadStripe("pk_test_51JmCVzSA4wm7vFcSkfh7zAMFZNqvNcGQhcplgvW9ZGZ2GlswJGdjbpFlTR3OBuzHfGjYw1qE9zTozsfo9s4cPdcI00GmFOI1vy")
 function App() {
   const [{ }, dispatch] = useStateValue();
   useEffect(() => {
     auth.onAuthStateChanged(authUser => {
-      console.log("the user is >>", authUser);
+
       if (authUser) {
         dispatch({
           type: "SET_USER",

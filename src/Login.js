@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./login.css"
 import { Link, useHistory } from 'react-router-dom'
+import { motion } from 'framer-motion';
 import { auth } from "./firebase";
 
 const Login = () => {
@@ -28,7 +29,12 @@ const Login = () => {
     }
     return (
         <>
-            <div className="login">
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.7 }}
+                className="login">
                 <Link to="/">
                     <img className="login_logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/800px-Amazon_logo.svg.png" alt="" className="login_logo" />
                 </Link>
@@ -48,7 +54,7 @@ const Login = () => {
                     <p>By continuing, you agree to Amazon-clone's Conditions of Use and Privacy Notice.</p>
                     <button className="signup_button" onClick={register} >Create Your Amazon Account</button>
                 </div>
-            </div>
+            </motion.div>
         </>
     )
 }

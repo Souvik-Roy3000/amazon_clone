@@ -3,6 +3,7 @@ import { db } from './firebase';
 import "./orders.css"
 import Order from './Order';
 import { useStateValue } from './StateProvider'
+import { motion } from 'framer-motion';
 const Orders = () => {
     const [orders, setOrders] = useState([]);
     const [{ basket, user }, dispatch] = useStateValue();
@@ -22,7 +23,12 @@ const Orders = () => {
     }, [user])
     return (
         <>
-            <div className='orders'>
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.7 }}
+                className='orders'>
                 <h1>Your Orders</h1>
 
                 <div className='orders__order'>
@@ -30,7 +36,7 @@ const Orders = () => {
                         <Order order={order} />
                     ))}
                 </div>
-            </div>
+            </motion.div>
         </>
     )
 }

@@ -105,3 +105,20 @@ margin-bottom: 5px;
 font-size: 18px;
 letter-spacing: 1px;
   }
+
+  @media only screen and (max-width: 600px) {
+    .footer_div_first{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 30px;
+    }
+    .secondary_div{
+        margin-bottom: 5px;
+    }
+  }

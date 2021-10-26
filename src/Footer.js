@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
 import "./footer.css"
-
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion'
 const Footer = () => {
 
     return (
         <>
-            <footer>
+            <motion.footer
+                animate={{ y: 0, opacity: 1 }}
+                initial={{ y: 1100, opacity: 0.5 }}
+                transition={{ duration: 1 }}
+            >
                 <div className="footer_div_first">
                     <div className="secondary_div">
                         <h1>Get to Know Us</h1>
@@ -44,7 +49,9 @@ const Footer = () => {
                 </div>
                 <div className="footer_div_second">
                     <div className="logo">
-                        <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="logo" />
+                        <Link to="/">
+                            <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="logo" />
+                        </Link>
                     </div>
                     <div className="language_checkbox">
                         <div class="selectdiv">
@@ -67,7 +74,7 @@ const Footer = () => {
                 <div className="credit">
                     <h2>This Amazon-clone is created by Souvik Roy @2021</h2>
                 </div>
-            </footer>
+            </motion.footer>
         </>
     )
 }

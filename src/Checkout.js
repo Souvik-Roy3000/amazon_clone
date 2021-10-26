@@ -3,11 +3,18 @@ import "./checkout.css"
 import Checkoutproduct from './Checkoutproduct'
 import Subtotal from './Subtotal'
 import { useStateValue } from './StateProvider'
+import { motion } from 'framer-motion'
 const Checkout = () => {
     const [{ basket, user }, dispatch] = useStateValue();
     return (
         <>
-            <div className="checkout">
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.7 }}
+
+                className="checkout">
                 <div className="checkout_left">
                     <img className="checkout-add" src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg" alt="" />
                     <div>
@@ -28,7 +35,7 @@ const Checkout = () => {
 
                     <Subtotal />
                 </div>
-            </div>
+            </motion.div>
         </>
     )
 }

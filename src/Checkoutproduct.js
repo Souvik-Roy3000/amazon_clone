@@ -1,6 +1,8 @@
+import { useAnimation } from 'framer-motion';
 import React from 'react'
 import "./checkoutproduct.css"
 import { useStateValue } from './StateProvider'
+import { motion } from 'framer-motion';
 const Checkoutproduct = ({ id, image, title, rating, price, hidebutton }) => {
 
     const [{ basket }, dispatch] = useStateValue();
@@ -10,7 +12,7 @@ const Checkoutproduct = ({ id, image, title, rating, price, hidebutton }) => {
             id: id,
         })
     }
-
+    const control = useAnimation();
     return (
         <>
             <div className="checkout_product">

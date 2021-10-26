@@ -9,6 +9,7 @@ import { useStateValue } from './StateProvider'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { BasketTotalAmount } from './Reducer';
 import { db } from './firebase';
+import { motion } from 'framer-motion';
 const Payment = () => {
     const stripe = useStripe();
     const elements = useElements();
@@ -34,7 +35,7 @@ const Payment = () => {
         getClientSecret();
     }, [basket])
 
-    console.log("the secret key is >>>", clientSecret);
+    // console.log("the secret key is >>>", clientSecret);
 
 
     const handleSubmit = async (e) => {
@@ -70,7 +71,11 @@ const Payment = () => {
     }
     return (
         <>
-            <div className="payment">
+            <motion.div
+                animate={{ x: 0, opacity: 1, type: "tween" }}
+                initial={{ x: -500, opacity: 0.5 }}
+                transition={{ type: "spring", stiffness: 100 }}
+                className="payment">
                 <div className="payment_container">
                     <h1>Checkout (<Link to="/checkout"> {basket?.length} items </Link>)</h1>
                     <div className="payment_section">
@@ -128,7 +133,7 @@ const Payment = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </>
     )
 }
